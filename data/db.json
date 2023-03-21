@@ -1,0 +1,14 @@
+{
+  "users": [
+    {
+      "id": "-iuahsdiusadas",
+      "name": "Douglas",
+      "email": "douglas@example.com"
+    },
+    {
+      "name": "Caio Silveira",
+      "email": "caio.silveira@example.com",
+      "id": "-oiajsdoisad"
+    }
+  ]
+}
