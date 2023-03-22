@@ -4,6 +4,6 @@ import HelloWorld from '~/components/HelloWorld.vue';
 
 <template>
   <QPage padding>
-    <HelloWorld msg="About" />
+    Hello World: About
   </QPage>
 </template>

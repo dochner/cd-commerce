@@ -26,6 +26,10 @@ export default defineConfig(({ command, mode }) => {
         presets: [
           UnocssIcons({
             prefix: 'i-',
+<<<<<<< HEAD
+=======
+            scale: 0.8,
+>>>>>>> d0fa778c2d5348c7d243bbfa0c9f9e55741c84f1
             extraProperties: {
               display: 'inline-block'
             }
