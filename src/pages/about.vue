@@ -1,10 +1,9 @@
-
 <script setup>
 import HelloWorld from '~/components/HelloWorld.vue';
 </script>
 
 <template>
-  <div>
+  <QPage padding>
     <HelloWorld msg="About" />
-  </div>
+  </QPage>
 </template>

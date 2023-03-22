@@ -22,6 +22,5 @@
     }
   },
   "exclude": ["dist", "node_modules"],
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/plugins/nprogress.js"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

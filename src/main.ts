@@ -1,20 +1,11 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import { createRouter, createWebHistory } from 'vue-router'
+import routes from './router/routes'
 import { UserModule } from './types'
 
-import './styles/main.css'
-
-const routes = [
-  {
-    path: '/',
-    component: () => import('./pages/index.vue'),
-  },
-  {
-    path: '/about',
-    component: () => import('./pages/about.vue'),
-  },
-]
+import './styles/main.sass'
+import 'uno.css'
 
 const router = createRouter({
   history: createWebHistory(),
