@@ -1,17 +1,21 @@
 <script setup>
+import { computed } from 'vue'
 import { APP_TITLE } from '~/constants'
 import DcLocalePicker from '../molecules/DcLocalePicker.vue';
+import { useI18n } from 'vue-i18n';
 
-const menu = [
+const { t } = useI18n()
+
+const menu = computed(() => [
   {
-    title: 'About',
-    href: '/about',
+    title: t('button.about'),
+    href: '/#about',
   },
   {
-    title: 'Contact us',
-    href: '/contact-us'
+    title: t('button.contact_us'),
+    href: '/#contact-us'
   }
-]
+])
 </script>
 
 <template>

@@ -4,6 +4,7 @@ import { quasar, transformAssetUrls } from '@quasar/vite-plugin'
 import UnoCSS from 'unocss/vite'
 import UnocssIcons from '@unocss/preset-icons'
 import Vue from '@vitejs/plugin-vue'
+import VueI18n from '@intlify/unplugin-vue-i18n/vite'
 
 export default defineConfig(({ command, mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
@@ -18,10 +19,12 @@ export default defineConfig(({ command, mode }) => {
       Vue({
         template: { transformAssetUrls }
       }),
+      // https://quasar.dev/start/vite-plugin
       quasar({
         autoImportComponentCase: 'combined',
         sassVariables: 'src/styles/quasar/variables.sass'
       }),
+      // https://github.com/antfu/unocss
       UnoCSS({
         presets: [
           UnocssIcons({
@@ -32,6 +35,13 @@ export default defineConfig(({ command, mode }) => {
             }
           }),
         ],
+      }),
+      // https://github.com/intlify/bundle-tools/tree/main/packages/unplugin-vue-i18n
+      VueI18n({
+        runtimeOnly: true,
+        compositionOnly: true,
+        fullInstall: true,
+        include: [path.resolve(__dirname, 'locales/**')],
       }),
     ],
     define: {
