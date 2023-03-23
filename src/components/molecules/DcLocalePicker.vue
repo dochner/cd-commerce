@@ -1,8 +1,8 @@
 <script setup>
-import {computed} from 'vue'
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n';
 
-const { t, availableLocales, locale } = useI18n()
+const { t, locale } = useI18n()
 
 const setLocale = (newLocale) => {
   locale.value = newLocale
@@ -10,7 +10,7 @@ const setLocale = (newLocale) => {
 
 const actualLocale = computed(() => ({
   label: t(`locale.${locale.value}`),
-  flag: locale.value === 'en' ? 'i-twemoji:flag-united-states' : 'i-twemoji:flag-brazil'
+  flag: locale.value === 'en-US' ? 'i-twemoji:flag-united-states' : 'i-twemoji:flag-brazil'
 }))
 </script>
 
@@ -35,12 +35,12 @@ const actualLocale = computed(() => ({
         </QItemSection>
       </QItem>
 
-      <QItem clickable v-close-popup @click="setLocale('en')">
+      <QItem clickable v-close-popup @click="setLocale('en-US')">
         <QItemSection avatar>
           <QIcon name="i-twemoji:flag-united-states" />
         </QItemSection>
         <QItemSection>
-          <QItemLabel>{{ t('locale.en') }}</QItemLabel>
+          <QItemLabel>{{ t('locale.en-US') }}</QItemLabel>
         </QItemSection>
       </QItem>
     </QList>
