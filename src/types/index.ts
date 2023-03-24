@@ -12,3 +12,19 @@ export type NavMenuItem = {
   title: string;
   href: string;
 }
+
+export type ID = number | string;
+
+export type Plataform = {
+  id: ID;
+  name: string;
+}
+
+export type Game = {
+  id: ID;
+  name: string;
+  price: number;
+  promotion?: number;
+  platforms?: Plataform[];
+  img?: string;
+}

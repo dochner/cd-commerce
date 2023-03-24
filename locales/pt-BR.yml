@@ -1,6 +1,26 @@
 button:
   about: Sobre
   contact_us: Contate-nos
+  login: Login
+  register: Registrar
+  sign_in_to_your_account: Acessar com sua conta
+  create_your_account: Criar sua conta
+  create: Criar
+  enter: Entrar
+label:
+  email: E-mail
+  name: Nome
+  password: Senha
+  password_confirmation: Confirmação de senha
 locale:
   pt-BR: Português
   en-US: Inglês
+title:
+  about: Sobre
+  contact_us: Contate-nos
+  login: Login
+  register: Cadastrar
+p:
+  fill_all_fields_to_get_a_account: Preencha todos os campos para criar uma conta
+  already_have_account: Já possui uma conta?
+or: Ou
