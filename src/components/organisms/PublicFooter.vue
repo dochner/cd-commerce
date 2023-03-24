@@ -39,7 +39,7 @@ const actualYear = computed(() => new Date().getFullYear());
         </div>
 
         <div class="column">
-          <DcLocalePicker />
+          <DcLocalePicker style="width: 170px" />
         </div>
       </QToolbar>
       <QSeparator />
@@ -62,6 +62,11 @@ const actualYear = computed(() => new Date().getFullYear());
 
 <style lang="scss">
 .public-footer {
+  &__wrapper {
+    max-width: 80rem;
+    margin: 0 auto;
+  }
+
   &__toolbar {
     flex-direction: row;
 
@@ -84,15 +89,6 @@ const actualYear = computed(() => new Date().getFullYear());
     &:hover {
       color: var(--q-primary);
       border-color: currentColor;
-    }
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .public-footer {
-    &__wrapper {
-      max-width: 80rem;
-      margin: 0 auto;
     }
   }
 }

@@ -18,12 +18,7 @@ const actualLocale = computed(() => ({
 </script>
 
 <template>
-  <QBtnDropdown
-    color="dark"
-    dropdown-icon="i-carbon-chevron-down"
-    no-caps
-    style="width: 152px"
-  >
+  <QBtnDropdown color="dark" dropdown-icon="i-mdi-chevron-down" no-caps>
     <template #label>
       <div class="row q-gutter-x-sm items-center">
         <QIcon
