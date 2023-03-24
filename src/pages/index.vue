@@ -1,8 +1,5 @@
-<script setup>
-</script>
+<script setup></script>
 
 <template>
-  <QPage padding>
-    Hello World
-  </QPage>
+  <QPage padding> Hello World </QPage>
 </template>

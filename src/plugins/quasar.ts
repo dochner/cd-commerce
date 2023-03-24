@@ -7,6 +7,7 @@ import '@quasar/extras/roboto-font/roboto-font.css'
 export const install: UserModule = ({ app }) => {
   app.use(Quasar, {
     config: {
+      dark: true,
       brand: {
         primary: '#3f59f2',
         secondary: '#9900f1',
