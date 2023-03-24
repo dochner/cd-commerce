@@ -7,3 +7,8 @@ export interface VueContext {
 }
 
 export type UserModule = (ctx: VueContext) => void;
+
+export type NavMenuItem = {
+  title: string;
+  href: string;
+}
