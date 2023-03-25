@@ -3,6 +3,6 @@
 
 <template>
   <QPage padding>
-    Hello World: About
+    Hello World: Contact-us
   </QPage>
 </template>
