@@ -28,3 +28,16 @@ export type Game = {
   platforms?: Plataform[];
   img?: string;
 }
+
+export type User = {
+  id: ID;
+  avatar?: string;
+  name: string;
+  email: string;
+  password?: string;
+}
+
+export type UserSignIn = {
+  email: string,
+  password: string
+}

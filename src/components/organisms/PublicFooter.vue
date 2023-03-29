@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { APP_TITLE } from "~/constants";
-import DcLocalePicker from "../molecules/DcLocalePicker.vue";
 import { useI18n } from "vue-i18n";
 import { NavMenuItem } from "~/types";
+import CdLocalePicker from "../molecules/CdLocalePicker.vue";
 
 const { t } = useI18n();
 
@@ -22,7 +22,7 @@ const actualYear = computed(() => new Date().getFullYear());
 </script>
 
 <template>
-  <QFooter elevated class="public-footer bg-dark">
+  <QFooter elevated class="public-footer">
     <div class="public-footer__wrapper">
       <QToolbar class="public-footer__toolbar justify-between q-pa-md">
         <div
@@ -39,7 +39,7 @@ const actualYear = computed(() => new Date().getFullYear());
         </div>
 
         <div class="column">
-          <DcLocalePicker style="width: 170px" />
+          <CdLocalePicker class="public-footer__locale-picker" />
         </div>
       </QToolbar>
       <QSeparator />
@@ -62,6 +62,8 @@ const actualYear = computed(() => new Date().getFullYear());
 
 <style lang="scss">
 .public-footer {
+  background-color: #1d1049;
+
   &__wrapper {
     max-width: 80rem;
     margin: 0 auto;
@@ -90,6 +92,10 @@ const actualYear = computed(() => new Date().getFullYear());
       color: var(--q-primary);
       border-color: currentColor;
     }
+  }
+
+  &__locale-picker {
+    width: 170px;
   }
 }
 </style>

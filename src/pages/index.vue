@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import DcGameCard from "~/components/molecules/DcGameCard.vue";
+import CdGameCard from "~/components/molecules/CdGameCard.vue";
 import { Game } from "~/types";
 
 const gameList: Game[] = [
@@ -24,7 +24,7 @@ const gameList: Game[] = [
     name: "Lawn Mowing Simulator",
     platforms: [
       {
-        id: 3,
+        id: 1,
         name: "Windows",
       },
     ],
@@ -107,11 +107,11 @@ const gameList: Game[] = [
   <QPage padding class="row">
     <div class="home-page__games-grid q-mx-auto q-py-xl row items-center">
       <div
-        v-for="(game, index) in gameList"
+        v-for="game in gameList"
         :key="game.id"
         class="col-12 q-pa-md home-page__game-card"
       >
-        <DcGameCard v-bind="game"> </DcGameCard>
+        <CdGameCard :game="game"> </CdGameCard>
       </div>
     </div>
   </QPage>

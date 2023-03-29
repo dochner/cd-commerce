@@ -24,3 +24,9 @@ p:
   fill_all_fields_to_get_a_account: Preencha todos os campos para criar uma conta
   already_have_account: Já possui uma conta?
 or: Ou
+input_rules:
+  required: Por favor digite um valor
+  email: Por favor digite um endereço de e-mail válido
+  min: Este campo necessita pelo menos {min} caracteres
+  password: Por favor digite uma senha mais forte
+  confirm_password: As senhas não conferem

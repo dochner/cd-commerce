@@ -24,3 +24,9 @@ p:
   fill_all_fields_to_get_a_account: Fill all the required fields to get an account
   already_have_account: Already have an account?
 or: Or
+input_rules:
+  required: Please enter a value
+  email: Please enter a valid e-mail address
+  min: This field requires min {min} caracteres
+  password: Please enter a stronger password.
+  confirm_password: Please verify your password

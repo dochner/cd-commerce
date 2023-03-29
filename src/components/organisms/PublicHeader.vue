@@ -1,7 +1,7 @@
 <script setup>
 import { APP_TITLE } from "~/constants";
 import useLayout from "~/composables/layout";
-import DcBtn from "~/components/atoms/DcBtn.vue";
+import CdBtn from "../atoms/CdBtn.vue";
 
 const { toggleCartDrawer, toggleMenuDrawer } = useLayout();
 </script>
@@ -9,7 +9,7 @@ const { toggleCartDrawer, toggleMenuDrawer } = useLayout();
 <template>
   <QHeader
     elevated
-    class="bg-dark text-white"
+    class="public-header text-white"
     style="height: 80px"
     height-hint="80"
   >
@@ -24,7 +24,7 @@ const { toggleCartDrawer, toggleMenuDrawer } = useLayout();
       </QToolbarTitle>
 
       <div class="q-gutter-x-md" v-if="$q.screen.gt.sm">
-        <DcBtn
+        <CdBtn
           to="/account/login"
           icon="i-mdi-account"
           label="Entrar"
@@ -44,3 +44,9 @@ const { toggleCartDrawer, toggleMenuDrawer } = useLayout();
     </QToolbar>
   </QHeader>
 </template>
+
+<style lang="scss">
+.public-header {
+  background-color: #130b3b;
+}
+</style>
