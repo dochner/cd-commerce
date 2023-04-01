@@ -25,7 +25,7 @@ p:
   already_have_account: Already have an account?
 or: Or
 input_rules:
-  required: Please enter a value
+  required: Please enter a value for the field {name}
   email: Please enter a valid e-mail address
   min: This field requires min {min} caracteres
   password: Please enter a stronger password.

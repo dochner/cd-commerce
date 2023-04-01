@@ -25,7 +25,7 @@ p:
   already_have_account: Já possui uma conta?
 or: Ou
 input_rules:
-  required: Por favor digite um valor
+  required: Por favor digite um valor para o campo {name}
   email: Por favor digite um endereço de e-mail válido
   min: Este campo necessita pelo menos {min} caracteres
   password: Por favor digite uma senha mais forte
