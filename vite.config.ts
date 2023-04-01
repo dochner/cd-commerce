@@ -5,8 +5,9 @@ import UnoCSS from 'unocss/vite'
 import UnocssIcons from '@unocss/preset-icons'
 import Vue from '@vitejs/plugin-vue'
 import VueI18n from '@intlify/unplugin-vue-i18n/vite'
+import Eslint from 'vite-plugin-eslint'
 
-export default defineConfig(({ command, mode }) => {
+export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
 
   return {
@@ -42,6 +43,7 @@ export default defineConfig(({ command, mode }) => {
         fullInstall: true,
         include: [path.resolve(__dirname, 'locales/**')],
       }),
+      Eslint()
     ],
     define: {
       API_URL: env.API_URL
