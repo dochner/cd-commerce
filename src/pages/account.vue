@@ -1,6 +1,6 @@
 <template>
   <QPage
-    class="page-account justify-center items-center row q-py-xl column q-pa-md"
+    class="page-account justify-center items-center row q-py-xl column q-pa-md overflow-hidden"
   >
     <RouterView v-slot="{ Component }">
       <Transition name="flip" mode="out-in">
