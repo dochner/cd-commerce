@@ -10,11 +10,14 @@ const getPromotionText = computed(
   () => props?.game.promotion && `${props.game?.promotion * 100}%`
 );
 
-const plataforms = computed(() => props.game?.platforms?.map((plataform) => ({
-  ...plataform,
-  icon: plataform.name.includes('Windows') ? 'i-mdi-microsoft-windows' : 'i-mdi-steam'
-})))
-
+const platforms = computed(() =>
+  props.game?.platforms?.map((plataform) => ({
+    ...plataform,
+    icon: plataform.name.includes("Windows")
+      ? "i-mdi-microsoft-windows"
+      : "i-mdi-steam",
+  }))
+);
 </script>
 
 <template>
@@ -27,14 +30,18 @@ const plataforms = computed(() => props.game?.platforms?.map((plataform) => ({
       </div>
       <div class="row q-gutter-x-xs">
         <QIcon
-          v-for="(plataform, index) in plataforms" :key="index"
+          v-for="(plataform, index) in platforms"
+          :key="index"
           :name="plataform.icon"
           :title="plataform.name"
         />
       </div>
     </QCardSection>
     <QCardActions class="q-gutter-x-sm">
-      <div v-if="game?.promotion" class="bg-negative rounded-borders q-px-sm q-py-xs">
+      <div
+        v-if="game?.promotion"
+        class="bg-negative rounded-borders q-px-sm q-py-xs"
+      >
         {{ getPromotionText }}
       </div>
       <QBtn class="col-grow" label="USD$ 26.98" />
