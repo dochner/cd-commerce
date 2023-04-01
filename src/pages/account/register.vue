@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { EmbeddedValidationRule, EmbeddedValidationRuleFn, useQuasar } from "quasar";
+import { useQuasar } from "quasar";
 import { computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
+import { type InputRules } from "~/types";
 
 const $q = useQuasar();
 const { t } = useI18n();
@@ -43,14 +44,16 @@ const passwordScoreColor = computed(() =>
     : "positive"
 );
 
-type Rules = Record<EmbeddedValidationRule, EmbeddedValidationRuleFn<any>>
-
 const inputRules = {
-  name: (val: string) => !!val || t('input_rules.required'),
-  email: (val: string, rules:Rules) => rules.email(val) || t('input_rules.email'),
-  password: (val: string) => /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}/.test(val) || t('input_rules.password'),
-  confirmPassword: (val: string) => formData.value.password === val || t('input_rules.confirm_password')
-}
+  name: (val: string) => !!val || t("input_rules.required"),
+  email: (val: string, rules: InputRules) =>
+    rules.email(val) || t("input_rules.email"),
+  password: (val: string) =>
+    /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}/.test(val) ||
+    t("input_rules.password"),
+  confirmPassword: (val: string) =>
+    formData.value.password === val || t("input_rules.confirm_password"),
+};
 
 const formm = ref();
 const showPassword = ref(false);

@@ -3,6 +3,7 @@ import { useQuasar } from "quasar";
 import { ref } from "vue";
 import { useI18n } from "vue-i18n";
 import { useAuth } from "~/composables/auth";
+import { type InputRules } from "~/types";
 
 const auth = useAuth();
 const { t } = useI18n();
@@ -19,6 +20,13 @@ const showPassword = ref(false);
 const onSignIn = () => {
   auth.signIn(formData.value);
 };
+
+const inputRules = {
+  email: (val: string, rules: InputRules) =>
+    rules.email(val) || t("input_rules.email"),
+  password: (val: string) =>
+    !!val || t("input_rules.required", { name: t("label.password") }),
+};
 </script>
 
 <template>
@@ -32,7 +40,7 @@ const onSignIn = () => {
           ref=""
           v-model="formData.email"
           autocomplete="email"
-          :rules="[(val, rules) => rules.email(val) || 'Please enter a valid email address'] "
+          :rules="[inputRules.email]"
           lazy-rules
           :label="t('label.email')"
           filled
@@ -41,7 +49,7 @@ const onSignIn = () => {
           class="cd-input-password"
           v-model="formData.password"
           autocomplete="current-password"
-          :rules="[(val) => val.length > 3 || 'Please type your password']"
+          :rules="[inputRules.password]"
           :label="t('label.password')"
           :type="showPassword ? 'text' : 'password'"
           reactive-rules

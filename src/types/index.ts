@@ -1,3 +1,4 @@
+import { EmbeddedValidationRule, EmbeddedValidationRuleFn } from "quasar";
 import type { App } from "vue";
 import type { Router } from "vue-router";
 
@@ -11,14 +12,14 @@ export type UserModule = (ctx: VueContext) => void;
 export type NavMenuItem = {
   title: string;
   href: string;
-}
+};
 
 export type ID = number | string;
 
 export type Plataform = {
   id: ID;
   name: string;
-}
+};
 
 export type Game = {
   id: ID;
@@ -27,7 +28,7 @@ export type Game = {
   promotion?: number;
   platforms?: Plataform[];
   img?: string;
-}
+};
 
 export type User = {
   id: ID;
@@ -35,9 +36,14 @@ export type User = {
   name: string;
   email: string;
   password?: string;
-}
+};
 
 export type UserSignIn = {
-  email: string,
-  password: string
-}
+  email: string;
+  password: string;
+};
+
+export type InputRules = Record<
+  EmbeddedValidationRule,
+  EmbeddedValidationRuleFn<any>
+>;
