@@ -15,10 +15,11 @@
     "skipLibCheck": true,
     "noEmit": true,
     "types": [
-      "vite/client"
+      "vite/client",
+      "vitest"
     ],
     "paths": {
-      "~/*": ["src/*"],
+      "~/*": ["src/*"]
     }
   },
   "exclude": ["dist", "node_modules"],

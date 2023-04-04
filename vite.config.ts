@@ -5,6 +5,8 @@ import UnoCSS from 'unocss/vite'
 import UnocssIcons from '@unocss/preset-icons'
 import Vue from '@vitejs/plugin-vue'
 import VueI18n from '@intlify/unplugin-vue-i18n/vite'
+import AutoImport from 'unplugin-auto-import/vite'
+
 
 export default defineConfig(({ command, mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
@@ -42,9 +44,23 @@ export default defineConfig(({ command, mode }) => {
         fullInstall: true,
         include: [path.resolve(__dirname, 'locales/**')],
       }),
+      AutoImport({
+        imports: [
+          'vue',
+          'vue-router',
+        ],
+        dts: true,
+      })
     ],
     define: {
       API_URL: env.API_URL
     },
+    // test: {
+    //   include: ['test/**/*.test.ts'],
+    //   environment: 'jsdom',
+    //   deps: {
+    //     inline: ['@vue', '@vueuse', 'vue-demi'],
+    //   },
+    // }
   }
 })
