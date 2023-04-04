@@ -1,0 +1,18 @@
+.flip {
+  &-enter-active {
+    transition: all .3;
+    animation: flipY .3s;
+  }
+}
+
+@keyframes flipY {
+  from {
+    transform: perspective(1000px) rotate3d(0, 1, 0, 180deg);
+    animation-timing-function: ease-in;
+    opacity: 0.01;
+  }
+
+  to {
+    transform: perspective(1000px);
+  }
+}
