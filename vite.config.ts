@@ -1,15 +1,13 @@
 import path from "node:path";
-import { defineConfig, loadEnv } from 'vite'
-import { quasar, transformAssetUrls } from '@quasar/vite-plugin'
-import UnoCSS from 'unocss/vite'
-import UnocssIcons from '@unocss/preset-icons'
-import Vue from '@vitejs/plugin-vue'
-import VueI18n from '@intlify/unplugin-vue-i18n/vite'
-import AutoImport from 'unplugin-auto-import/vite'
-
+import { defineConfig, loadEnv } from "vite";
+import { quasar, transformAssetUrls } from "@quasar/vite-plugin";
+import UnoCSS from "unocss/vite";
+import UnocssIcons from "@unocss/preset-icons";
+import Vue from "@vitejs/plugin-vue";
+import VueI18n from "@intlify/unplugin-vue-i18n/vite";
 
 export default defineConfig(({ command, mode }) => {
-  const env = loadEnv(mode, process.cwd(), '')
+  const env = loadEnv(mode, process.cwd(), "");
 
   return {
     resolve: {
@@ -19,21 +17,21 @@ export default defineConfig(({ command, mode }) => {
     },
     plugins: [
       Vue({
-        template: { transformAssetUrls }
+        template: { transformAssetUrls },
       }),
       // https://quasar.dev/start/vite-plugin
       quasar({
-        autoImportComponentCase: 'combined',
-        sassVariables: 'src/styles/quasar/variables.sass'
+        autoImportComponentCase: "combined",
+        sassVariables: "src/styles/quasar/variables.sass",
       }),
       // https://github.com/antfu/unocss
       UnoCSS({
         presets: [
           UnocssIcons({
-            prefix: 'i-',
+            prefix: "i-",
             extraProperties: {
-              display: 'inline-block'
-            }
+              display: "inline-block",
+            },
           }),
         ],
       }),
@@ -42,25 +40,15 @@ export default defineConfig(({ command, mode }) => {
         runtimeOnly: true,
         compositionOnly: true,
         fullInstall: true,
-        include: [path.resolve(__dirname, 'locales/**')],
+        include: [path.resolve(__dirname, "locales/**")],
       }),
-      AutoImport({
-        imports: [
-          'vue',
-          'vue-router',
-        ],
-        dts: true,
-      })
     ],
     define: {
-      API_URL: env.API_URL
+      API_URL: env.API_URL,
     },
     // test: {
-    //   include: ['test/**/*.test.ts'],
-    //   environment: 'jsdom',
-    //   deps: {
-    //     inline: ['@vue', '@vueuse', 'vue-demi'],
-    //   },
-    // }
-  }
-})
+    //   include: ["**/*.{test,spec}.{js,ts}"],
+    //   environment: "jsdom",
+    // },
+  };
+});
