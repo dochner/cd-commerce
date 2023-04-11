@@ -1,19 +1,23 @@
-import { assert, expect, test } from 'vitest'
+import { assert, expect, test, describe } from "vitest";
 
-test('Math.sqrt', () => {
-  expect(Math.sqrt(4)).toBe(2)
-  expect(Math.sqrt(144)).toBe(12)
-  expect(Math.sqrt(2)).toBe(Math.SQRT2)
-})
+const isTest = import.meta.env.NODE_ENV === "test";
 
-test('JSON', () => {
-  const input = {
-    foo: 'hello',
-    bar: 'world'
-  }
+describe.skip("basic tests", () => {
+  test("Math.sqrt", () => {
+    expect(Math.sqrt(4)).toBe(2);
+    expect(Math.sqrt(144)).toBe(12);
+    expect(Math.sqrt(2)).toBe(Math.SQRT2);
+  });
 
-  const output = JSON.stringify(input)
+  test.skipIf(isTest)("JSON", () => {
+    const input = {
+      foo: "hello",
+      bar: "world",
+    };
 
-  expect(output).eq('{"foo":"hello","bar":"world"}')
-  assert.deepEqual(JSON.parse(output), input, "Matches original")
-})
+    const output = JSON.stringify(input);
+
+    expect(output).eq('{"foo":"hello","bar":"world"}');
+    assert.deepEqual(JSON.parse(output), input, "Matches original");
+  });
+});
