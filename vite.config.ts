@@ -46,9 +46,9 @@ export default defineConfig(({ command, mode }) => {
     define: {
       API_URL: env.API_URL,
     },
-    test: {
-      include: ["**/*.{test,spec}.{js,ts}"],
-      environment: "jsdom",
-    },
+    // test: {
+    //   include: ["**/*.{test,spec}.{js,ts}"],
+    //   environment: "jsdom",
+    // },
   };
 });
