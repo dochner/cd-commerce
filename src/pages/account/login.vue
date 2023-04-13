@@ -1,28 +1,25 @@
 <script setup lang="ts">
 import { useQuasar } from "quasar";
-import { ref } from "vue";
+import { ref, toRefs } from "vue";
 import { useI18n } from "vue-i18n";
-import { useAuth } from "~/composables/auth";
-import { type InputRules } from "~/types";
+import { useAuthStore } from "~/stores/auth";
+import { type QuasarInputRules } from "~/types";
 
-const auth = useAuth();
+const auth = useAuthStore();
 const { t } = useI18n();
 
 const $q = useQuasar();
 
-const formData = ref({
-  email: "",
-  password: "",
-});
+const { userCredentials } = toRefs(auth);
 
 const showPassword = ref(false);
 
-const onSignIn = () => {
-  auth.signIn(formData.value);
+const onSignIn = async () => {
+  await auth.signIn();
 };
 
 const inputRules = {
-  email: (val: string, rules: InputRules) =>
+  email: (val: string, rules: QuasarInputRules) =>
     rules.email(val) || t("input_rules.email"),
   password: (val: string) =>
     !!val || t("input_rules.required", { name: t("label.password") }),
@@ -38,7 +35,7 @@ const inputRules = {
       <QCardSection class="q-gutter-y-md">
         <QInput
           ref=""
-          v-model="formData.email"
+          v-model="userCredentials.email"
           autocomplete="email"
           :rules="[inputRules.email]"
           lazy-rules
@@ -47,7 +44,7 @@ const inputRules = {
         />
         <QInput
           class="cd-input-password"
-          v-model="formData.password"
+          v-model="userCredentials.password"
           autocomplete="current-password"
           :rules="[inputRules.password]"
           :label="t('label.password')"

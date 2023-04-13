@@ -2,7 +2,7 @@
 import { useQuasar } from "quasar";
 import { computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
-import { type InputRules } from "~/types";
+import { type QuasarInputRules } from "~/types";
 
 const $q = useQuasar();
 const { t } = useI18n();
@@ -46,7 +46,7 @@ const passwordScoreColor = computed(() =>
 
 const inputRules = {
   name: (val: string) => !!val || t("input_rules.required"),
-  email: (val: string, rules: InputRules) =>
+  email: (val: string, rules: QuasarInputRules) =>
     rules.email(val) || t("input_rules.email"),
   password: (val: string) =>
     /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}/.test(val) ||
