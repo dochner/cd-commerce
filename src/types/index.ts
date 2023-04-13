@@ -43,7 +43,7 @@ export type UserSignIn = {
   password: string;
 };
 
-export type InputRules = Record<
+export type QuasarInputRules = Record<
   EmbeddedValidationRule,
   EmbeddedValidationRuleFn<any>
 >;
