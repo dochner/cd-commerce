@@ -22,11 +22,16 @@ const platforms = computed(() =>
 
 <template>
   <QCard>
-    <QImg :src="game?.img" :aspect-ratio="3 / 1" />
+    <QImg
+      :src="game?.img"
+      :aspect-ratio="3 / 1"
+    />
 
     <QCardSection>
       <div>
-        <h3 class="text-body2">Lawn Mowing Simulator</h3>
+        <h3 class="text-body2">
+          Lawn Mowing Simulator
+        </h3>
       </div>
       <div class="row q-gutter-x-xs">
         <QIcon
@@ -44,7 +49,10 @@ const platforms = computed(() =>
       >
         {{ getPromotionText }}
       </div>
-      <QBtn class="col-grow" label="USD$ 26.98" />
+      <QBtn
+        class="col-grow"
+        label="USD$ 26.98"
+      />
     </QCardActions>
   </QCard>
 </template>

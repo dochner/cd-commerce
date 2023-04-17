@@ -18,5 +18,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div id="card">{{ title }}</div>
+  <div id="card">
+    {{ title }}
+  </div>
 </template>

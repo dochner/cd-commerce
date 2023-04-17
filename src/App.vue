@@ -9,7 +9,7 @@ $q.iconMapFn = (iconName) =>
 </script>
 
 <template>
-  <LayoutPrivate v-if="$route.meta.layout == 'private'">
+  <LayoutPrivate v-if="$route.meta.layout === 'private'">
     <RouterView />
   </LayoutPrivate>
 
