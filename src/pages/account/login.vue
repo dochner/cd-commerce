@@ -43,7 +43,6 @@ const inputRules = {
       </QCardSection>
       <QCardSection class="q-gutter-y-md">
         <QInput
-          ref=""
           v-model="userCredentials.email"
           autocomplete="email"
           :rules="[inputRules.email]"
