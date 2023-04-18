@@ -2,7 +2,7 @@
 import { useQuasar } from "quasar";
 import { computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
-import { type InputRules } from "~/types";
+import { type QuasarInputRules } from "~/types";
 
 const $q = useQuasar();
 const { t } = useI18n();
@@ -46,7 +46,7 @@ const passwordScoreColor = computed(() =>
 
 const inputRules = {
   name: (val: string) => !!val || t("input_rules.required"),
-  email: (val: string, rules: InputRules) =>
+  email: (val: string, rules: QuasarInputRules) =>
     rules.email(val) || t("input_rules.email"),
   password: (val: string) =>
     /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}/.test(val) ||
@@ -66,13 +66,19 @@ const handleSignUp = () => {
 
 <template>
   <QForm
-    @submit.pevent="handleSignUp"
-    class="full-width row justify-center"
     ref="formm"
+    class="full-width row justify-center"
+    @submit.prevent="handleSignUp"
   >
-    <QCard class="col-grow" style="overflow: visible; max-width: 375px" flat>
+    <QCard
+      class="col-grow"
+      style="overflow: visible; max-width: 375px"
+      flat
+    >
       <QCardSection class="text-center">
-        <h1 class="text-h4">{{ t("title.register") }}</h1>
+        <h1 class="text-h4">
+          {{ t("title.register") }}
+        </h1>
         <span>{{ t("p.fill_all_fields_to_get_a_account") }}</span>
       </QCardSection>
       <QCardSection class="q-gutter-y-md">
@@ -102,10 +108,10 @@ const handleSignUp = () => {
           <template #append>
             <QBtn
               :icon="showPassword ? 'i-mdi-eye' : 'i-mdi-eye-off'"
-              @click="showPassword = !showPassword"
               stretch
               flat
               no-ripple
+              @click="showPassword = !showPassword"
             />
           </template>
         </QInput>
@@ -128,15 +134,19 @@ const handleSignUp = () => {
           <template #append>
             <QBtn
               :icon="confirmShowPassword ? 'i-mdi-eye' : 'i-mdi-eye-off'"
-              @click="confirmShowPassword = !confirmShowPassword"
               flat
               no-ripple
               stretch
+              @click="confirmShowPassword = !confirmShowPassword"
             />
           </template>
         </QInput>
       </QCardSection>
-      <QCardActions align="center" class="q-gutter-y-md q-pa-md" vertical>
+      <QCardActions
+        align="center"
+        class="q-gutter-y-md q-pa-md"
+        vertical
+      >
         <QBtn
           class="full-width"
           color="primary"
@@ -146,9 +156,19 @@ const handleSignUp = () => {
           :dense="$q.screen.width > 1240"
         />
         <div class="full-width row justify-center items-center">
-          <QSeparator spaced class="col" style="height: 1px" />
-          <div class="col-9 text-center">{{ t("p.already_have_account") }}</div>
-          <QSeparator spaced class="col" style="height: 1px" />
+          <QSeparator
+            spaced
+            class="col"
+            style="height: 1px"
+          />
+          <div class="col-9 text-center">
+            {{ t("p.already_have_account") }}
+          </div>
+          <QSeparator
+            spaced
+            class="col"
+            style="height: 1px"
+          />
         </div>
         <QBtn
           to="/account/login"

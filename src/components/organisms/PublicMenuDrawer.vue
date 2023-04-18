@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import usePublicLayout from '~/composables/layout';
+import usePublicLayout from "~/composables/layout";
 
 const { isMenuDrawerOpen, toggleMenuDrawer } = usePublicLayout();
 </script>
@@ -7,12 +7,16 @@ const { isMenuDrawerOpen, toggleMenuDrawer } = usePublicLayout();
 <template>
   <QDrawer
     v-if="$q.screen.lt.md"
+    id="public-menu-drawer"
     :model-value="isMenuDrawerOpen"
-    @update:model-value="toggleMenuDrawer"
     side="right"
-    overlay behavior="mobile"
+    overlay
+    behavior="mobile"
     bordered
+    @update:model-value="toggleMenuDrawer"
   >
     <!-- drawer content -->
+    <div>Drawer Content</div>
   </QDrawer>
 </template>
+

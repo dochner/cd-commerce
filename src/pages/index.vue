@@ -104,14 +104,17 @@ const gameList: Game[] = [
 </script>
 
 <template>
-  <QPage padding class="row">
+  <QPage
+    padding
+    class="row"
+  >
     <div class="home-page__games-grid q-mx-auto q-py-xl row items-center">
       <div
         v-for="game in gameList"
         :key="game.id"
         class="col-12 q-pa-md home-page__game-card"
       >
-        <CdGameCard :game="game"> </CdGameCard>
+        <CdGameCard :game="game" />
       </div>
     </div>
   </QPage>

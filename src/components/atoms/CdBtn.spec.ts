@@ -1,20 +1,17 @@
 import { test, expect, describe } from "vitest";
 import { mount } from "@vue/test-utils";
 import CdBtn from "./CdBtn.vue";
-import { Quasar } from "quasar";
 
 const wrapperFactory = (props?: any) => {
   return mount(CdBtn, {
     ...props,
-    global: {
-      plugins: [Quasar],
-    },
   });
 };
 
 describe("CdBtn", () => {
   test("mount component", () => {
     const wrapper = wrapperFactory();
+    console.log("wrapper: ", wrapper.html());
 
     expect(wrapper.html()).toBeTruthy;
   });
@@ -35,6 +32,8 @@ describe("CdBtn", () => {
         label: "Testing",
       },
     });
+
+    console.log("wrapper (label): ", wrapper.html());
 
     expect(wrapper.html()).toContain("Testing");
 

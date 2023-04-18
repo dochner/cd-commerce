@@ -5,7 +5,14 @@ const { isCartDrawerOpen, toggleCartDrawer } = usePublicLayout();
 </script>
 
 <template>
-  <QDrawer :model-value="isCartDrawerOpen" @update:model-value="toggleCartDrawer" side="right" overlay behavior="mobile" bordered>
+  <QDrawer
+    :model-value="isCartDrawerOpen"
+    side="right"
+    overlay
+    behavior="mobile"
+    bordered
+    @update:model-value="toggleCartDrawer"
+  >
     <!-- drawer content -->
   </QDrawer>
 </template>

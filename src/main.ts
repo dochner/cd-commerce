@@ -18,6 +18,6 @@ app.use(router)
 
 Object.values(
   import.meta.glob<{ install: UserModule }>("./plugins/*.{js,ts}", { eager: true })
-).forEach((i) => i.install?.({ app, router }));;
+).forEach((i) => i.install?.({ app, router }));
 
 app.mount('#app')
