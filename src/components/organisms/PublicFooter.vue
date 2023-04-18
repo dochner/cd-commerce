@@ -22,16 +22,19 @@ const actualYear = computed(() => new Date().getFullYear());
 </script>
 
 <template>
-  <QFooter elevated class="public-footer">
+  <QFooter
+    elevated
+    class="public-footer"
+  >
     <div class="public-footer__wrapper">
       <QToolbar class="public-footer__toolbar justify-between q-pa-md">
         <div
           class="public-footer__toolbar-links flex flex-grow q-gutter-y-lg q-gutter-x-lg"
         >
           <RouterLink
-            class="public-footer__link text-subtitle1"
             v-for="(item, index) in menu"
             :key="index"
+            class="public-footer__link text-subtitle1"
             :to="item.href"
           >
             {{ item.title }}
@@ -48,7 +51,7 @@ const actualYear = computed(() => new Date().getFullYear());
           class="public-footer__toolbar row q-gutter-x-md items-center q-pa-md"
         >
           <QAvatar size="30px">
-            <img src="/favicon.svg" />
+            <img src="/favicon.svg">
           </QAvatar>
           <div class="text-h6 text-weight-bold flex">
             {{ APP_TITLE }}

@@ -7,15 +7,16 @@ const { isMenuDrawerOpen, toggleMenuDrawer } = usePublicLayout();
 <template>
   <QDrawer
     v-if="$q.screen.lt.md"
-    :model-value="isMenuDrawerOpen"
-    @update:model-value="toggleMenuDrawer"
-    side="right"
     id="public-menu-drawer"
+    :model-value="isMenuDrawerOpen"
+    side="right"
     overlay
     behavior="mobile"
     bordered
+    @update:model-value="toggleMenuDrawer"
   >
     <!-- drawer content -->
     <div>Drawer Content</div>
   </QDrawer>
 </template>
+

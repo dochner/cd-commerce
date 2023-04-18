@@ -27,10 +27,19 @@ const inputRules = {
 </script>
 
 <template>
-  <QForm @submit.prevent="onSignIn" class="full-width row justify-center">
-    <QCard class="col-grow" style="overflow: visible; max-width: 375px" flat>
+  <QForm
+    class="full-width row justify-center"
+    @submit.prevent="onSignIn"
+  >
+    <QCard
+      class="col-grow"
+      style="overflow: visible; max-width: 375px"
+      flat
+    >
       <QCardSection class="text-center">
-        <h1 class="text-h4">{{ t("title.login") }}</h1>
+        <h1 class="text-h4">
+          {{ t("title.login") }}
+        </h1>
       </QCardSection>
       <QCardSection class="q-gutter-y-md">
         <QInput
@@ -43,8 +52,8 @@ const inputRules = {
           filled
         />
         <QInput
-          class="cd-input-password"
           v-model="userCredentials.password"
+          class="cd-input-password"
           autocomplete="current-password"
           :rules="[inputRules.password]"
           :label="t('label.password')"
@@ -55,15 +64,19 @@ const inputRules = {
           <template #append>
             <QBtn
               :icon="showPassword ? 'i-mdi-eye' : 'i-mdi-eye-off'"
-              @click="showPassword = !showPassword"
               stretch
               flat
               no-ripple
+              @click="showPassword = !showPassword"
             />
           </template>
         </QInput>
       </QCardSection>
-      <QCardActions align="center" class="q-gutter-y-md q-pa-md" vertical>
+      <QCardActions
+        align="center"
+        class="q-gutter-y-md q-pa-md"
+        vertical
+      >
         <QBtn
           class="full-width"
           color="primary"
@@ -74,9 +87,19 @@ const inputRules = {
         />
 
         <div class="full-width row justify-center items-center">
-          <QSeparator spaced class="col-5" style="height: 1px" />
-          <div class="col-1 text-center">{{ t("or") }}</div>
-          <QSeparator spaced class="col-5" style="height: 1px" />
+          <QSeparator
+            spaced
+            class="col-5"
+            style="height: 1px"
+          />
+          <div class="col-1 text-center">
+            {{ t("or") }}
+          </div>
+          <QSeparator
+            spaced
+            class="col-5"
+            style="height: 1px"
+          />
         </div>
 
         <QBtn

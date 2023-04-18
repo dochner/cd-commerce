@@ -18,20 +18,31 @@ const actualLocale = computed(() => ({
 </script>
 
 <template>
-  <QBtnDropdown color="dark" dropdown-icon="i-mdi-chevron-down" no-caps>
+  <QBtnDropdown
+    color="dark"
+    dropdown-icon="i-mdi-chevron-down"
+    no-caps
+  >
     <template #label>
       <div class="row q-gutter-x-sm items-center">
         <QIcon
           v-if="actualLocale.flag.includes('brazil')"
           name="i-twemoji:flag-brazil"
         />
-        <QIcon v-else name="i-twemoji:flag-united-states" />
+        <QIcon
+          v-else
+          name="i-twemoji:flag-united-states"
+        />
         <div>{{ actualLocale.label }}</div>
       </div>
     </template>
 
     <QList class="text-white">
-      <QItem clickable v-close-popup @click="setLocale('pt-BR')">
+      <QItem
+        v-close-popup
+        clickable
+        @click="setLocale('pt-BR')"
+      >
         <QItemSection avatar>
           <QIcon name="i-twemoji:flag-brazil" />
         </QItemSection>
@@ -40,7 +51,11 @@ const actualLocale = computed(() => ({
         </QItemSection>
       </QItem>
 
-      <QItem clickable v-close-popup @click="setLocale('en-US')">
+      <QItem
+        v-close-popup
+        clickable
+        @click="setLocale('en-US')"
+      >
         <QItemSection avatar>
           <QIcon name="i-twemoji:flag-united-states" />
         </QItemSection>
